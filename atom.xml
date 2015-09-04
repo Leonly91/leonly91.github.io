@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Leonly91's Personal Blog]]></title>
+  <subtitle><![CDATA[Hello, World!]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-09-03T09:45:12.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Leon]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Git clone timeout]]></title>
+    <link href="http://yoursite.com/2015/09/03/Git-clone-timeout/"/>
+    <id>http://yoursite.com/2015/09/03/Git-clone-timeout/</id>
+    <published>2015-09-03T09:16:03.000Z</published>
+    <updated>2015-09-03T09:45:12.000Z</updated>
+    <content type="html"><![CDATA[<p>When I clone from github.com on terminate it occurs an error : RPC failed; result=56, HTTP code = 200, and then config likes below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> GIT_TRACE_PACKET=<span class="number">1</span></span><br><span class="line">$ <span class="built_in">export</span> GIT_TRACE=<span class="number">1</span></span><br><span class="line">$ <span class="built_in">export</span> GIT_CURL_VERBOSE=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>It will fix when you do git clone again.<br>See detail from <a href="https://confluence.atlassian.com/pages/viewpage.action?pageId=693897332" target="_blank" rel="external">Here</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>When I clone from github.com on terminate it occurs an error : RPC failed; result=56, HTTP code = 200, and then config likes below:<br><f]]>
+    </summary>
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://yoursite.com/2015/08/02/hello-world/"/>
+    <id>http://yoursite.com/2015/08/02/hello-world/</id>
+    <published>2015-08-02T10:01:03.000Z</published>
+    <updated>2015-08-02T10:01:03.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
