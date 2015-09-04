@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Git/" style="font-size: 10px;">Git</a>
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
 					</div>
 				</section>
 				
@@ -207,6 +207,83 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Error-Cannot-GET-atom-xml-for-hexo-RSS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/04/Error-Cannot-GET-atom-xml-for-hexo-RSS/" class="article-date">
+  	<time datetime="2015-09-04T06:06:59.000Z" itemprop="datePublished">2015-09-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/04/Error-Cannot-GET-atom-xml-for-hexo-RSS/">Error: Cannot GET atom.xml for hexo RSS.</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装hexo-generator-feed和hexo-generator-sitemap插件后，访问站点<a href="http://0.0.0.0:4000/atom.xml显示“Cannot" target="_blank" rel="external">http://0.0.0.0:4000/atom.xml显示“Cannot</a> GET atom.xml”：无法获取atom.xml，sitemap.xml也是如此，想必是哪里配置不正确。查看hexo/package.json，发现里面没有hexo-generator-feed和hexo-generator-sitemap的配置，那就添加一下，版本号在对应插件目录下的package.json中。</p>
+<pre><code>  {
+  "<span class="attribute">name</span>": <span class="value"><span class="string">"hexo-site"</span></span>,
+  "<span class="attribute">version</span>": <span class="value"><span class="string">"0.0.0"</span></span>,
+  "<span class="attribute">private</span>": <span class="value"><span class="literal">true</span></span>,
+  "<span class="attribute">hexo</span>": <span class="value">{
+    "<span class="attribute">version</span>": <span class="value"><span class="string">"3.1.1"</span>
+  </span>}</span>,
+  "<span class="attribute">dependencies</span>": <span class="value">{
+    "<span class="attribute">hexo</span>": <span class="value"><span class="string">"^3.1.0"</span></span>,
+    "<span class="attribute">hexo-deployer-git</span>": <span class="value"><span class="string">"0.0.4"</span></span>,
+    "<span class="attribute">hexo-generator-archive</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
+    "<span class="attribute">hexo-generator-category</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
+    "<span class="attribute">hexo-generator-index</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
+    "<span class="attribute">hexo-generator-tag</span>": <span class="value"><span class="string">"^0.1.1"</span></span>,
+    "<span class="attribute">hexo-renderer-ejs</span>": <span class="value"><span class="string">"^0.1.0"</span></span>,
+    "<span class="attribute">hexo-renderer-marked</span>": <span class="value"><span class="string">"^0.2.4"</span></span>,
+    "<span class="attribute">hexo-renderer-stylus</span>": <span class="value"><span class="string">"^0.2.3"</span></span>,
+    "<span class="attribute">hexo-server</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
+    "<span class="attribute">hexo-generator-feed</span>": <span class="value"><span class="string">"^1.0.3"</span></span>,
+    "<span class="attribute">hexo-generator-sitemap</span>": <span class="value"><span class="string">"^1.0.1"</span>
+  </span>}
+</span>}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Git-clone-timeout" class="article article-type-post" itemscope itemprop="blogPost">
   
