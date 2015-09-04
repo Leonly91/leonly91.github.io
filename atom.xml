@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hello, World!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-04T06:20:06.000Z</updated>
+  <updated>2015-09-04T06:27:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://yoursite.com/2015/09/04/Error-Cannot-GET-atom-xml-for-hexo-RSS/"/>
     <id>http://yoursite.com/2015/09/04/Error-Cannot-GET-atom-xml-for-hexo-RSS/</id>
     <published>2015-09-04T06:06:59.000Z</published>
-    <updated>2015-09-04T06:20:06.000Z</updated>
-    <content type="html"><![CDATA[<p>安装hexo-generator-feed和hexo-generator-sitemap插件后，访问站点<a href="http://0.0.0.0:4000/atom.xml" target="_blank" rel="external">http://0.0.0.0:4000/atom.xml</a>显示“Cannot GET atom.xml”：无法获取atom.xml，sitemap.xml也是如此，想必是哪里配置不正确。查看hexo/package.json，发现里面没有hexo-generator-feed和hexo-generator-sitemap的配置，那就添加一下，版本号在对应插件目录下的package.json中。</p>
+    <updated>2015-09-04T06:27:00.000Z</updated>
+    <content type="html"><![CDATA[<p>安装hexo-generator-feed和hexo-generator-sitemap插件后，访问站点<a href="http://0.0.0.0:4000/atom.xml" target="_blank" rel="external">http://0.0.0.0:4000/atom.xml</a>显示“Cannot GET atom.xml”：无法获取atom.xml，sitemap.xml也是如此，想必是哪里配置不正确。查看hexo/package.json，发现里面没有hexo-generator-feed和hexo-generator-sitemap的配置，那就添加一下，版本号在对应插件目录下的package.json中可以查到。</p>
 <pre><code>  {
   "<span class="attribute">name</span>": <span class="value"><span class="string">"hexo-site"</span></span>,
   "<span class="attribute">version</span>": <span class="value"><span class="string">"0.0.0"</span></span>,
@@ -59,7 +59,7 @@
     <link href="http://yoursite.com/2015/09/03/Git-clone-timeout/"/>
     <id>http://yoursite.com/2015/09/03/Git-clone-timeout/</id>
     <published>2015-09-03T09:16:03.000Z</published>
-    <updated>2015-09-03T09:45:12.000Z</updated>
+    <updated>2015-09-04T06:19:17.000Z</updated>
     <content type="html"><![CDATA[<p>When I clone from github.com on terminate it occurs an error : RPC failed; result=56, HTTP code = 200, and then config likes below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> GIT_TRACE_PACKET=<span class="number">1</span></span><br><span class="line">$ <span class="built_in">export</span> GIT_TRACE=<span class="number">1</span></span><br><span class="line">$ <span class="built_in">export</span> GIT_CURL_VERBOSE=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <p>It will fix when you do git clone again.<br>See detail from <a href="https://confluence.atlassian.com/pages/viewpage.action?pageId=693897332" target="_blank" rel="external">Here</a></p>
 ]]></content>

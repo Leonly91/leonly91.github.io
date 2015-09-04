@@ -234,7 +234,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>安装hexo-generator-feed和hexo-generator-sitemap插件后，访问站点<a href="http://0.0.0.0:4000/atom.xml" target="_blank" rel="external">http://0.0.0.0:4000/atom.xml</a>显示“Cannot GET atom.xml”：无法获取atom.xml，sitemap.xml也是如此，想必是哪里配置不正确。查看hexo/package.json，发现里面没有hexo-generator-feed和hexo-generator-sitemap的配置，那就添加一下，版本号在对应插件目录下的package.json中。</p>
+        <p>安装hexo-generator-feed和hexo-generator-sitemap插件后，访问站点<a href="http://0.0.0.0:4000/atom.xml" target="_blank" rel="external">http://0.0.0.0:4000/atom.xml</a>显示“Cannot GET atom.xml”：无法获取atom.xml，sitemap.xml也是如此，想必是哪里配置不正确。查看hexo/package.json，发现里面没有hexo-generator-feed和hexo-generator-sitemap的配置，那就添加一下，版本号在对应插件目录下的package.json中可以查到。</p>
 <pre><code>  {
   "<span class="attribute">name</span>": <span class="value"><span class="string">"hexo-site"</span></span>,
   "<span class="attribute">version</span>": <span class="value"><span class="string">"0.0.0"</span></span>,
