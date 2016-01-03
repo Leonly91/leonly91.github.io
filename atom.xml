@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hello, World!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-01-02T13:54:57.000Z</updated>
+  <updated>2016-01-02T14:19:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Xcode常用快捷键速查]]></title>
+    <title><![CDATA[Xcode常用快捷键不完全速查]]></title>
     <link href="http://yoursite.com/2016/01/02/xcode_hot_key/"/>
     <id>http://yoursite.com/2016/01/02/xcode_hot_key/</id>
-    <published>2016-01-02T13:54:57.000Z</published>
-    <updated>2016-01-02T13:54:57.000Z</updated>
+    <published>2016-01-02T14:19:15.000Z</published>
+    <updated>2016-01-02T14:19:15.000Z</updated>
     <content type="html"><![CDATA[<table>
 <thead>
 <tr>
@@ -35,6 +35,18 @@
 <tr>
 <td>跳转到变量定义的地方</td>
 <td>ctrl + cmd + j</td>
+</tr>
+<tr>
+<td>代码上移</td>
+<td>opt + cmd + [</td>
+</tr>
+<tr>
+<td>代码下移</td>
+<td>opt + cmd + ]</td>
+</tr>
+<tr>
+<td>.h/.m之间切换</td>
+<td>ctrl + cmd + 上下箭头</td>
 </tr>
 </tbody>
 </table>
