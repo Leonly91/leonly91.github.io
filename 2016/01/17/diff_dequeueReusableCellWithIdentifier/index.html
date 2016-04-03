@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/8 | Leonly91&#39;s Personal Blog</title>
+  <title>UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别 | Leonly91&#39;s Personal Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leonly91's Personal Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2015/08/index.html">
+  <meta name="description" content="苹果开发者文档中是这样描述:forIndexPath的：
+
+The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method use">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别">
+<meta property="og:url" content="http://yoursite.com/2016/01/17/diff_dequeueReusableCellWithIdentifier/index.html">
 <meta property="og:site_name" content="Leonly91's Personal Blog">
-<meta property="og:description">
+<meta property="og:description" content="苹果开发者文档中是这样描述:forIndexPath的：
+
+The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method use">
+<meta property="og:updated_time" content="2016-01-17T05:53:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leonly91's Personal Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别">
+<meta name="twitter:description" content="苹果开发者文档中是这样描述:forIndexPath的：
+
+The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method use">
   
     <link rel="alternative" href="/atom.xml" title="Leonly91&#39;s Personal Blog" type="application/atom+xml">
   
@@ -220,49 +227,109 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-diff_dequeueReusableCellWithIdentifier" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/02/hello-world/" class="archive-article-date">
-  	<time datetime="2015-08-02T10:01:03.000Z" itemprop="datePublished">8月 2</time>
+    <div class="article-meta">
+      <a href="/2016/01/17/diff_dequeueReusableCellWithIdentifier/" class="article-date">
+  	<time datetime="2016-01-17T05:53:09.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/02/hello-world/">Hello World</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
 
-        </div>
+        
+
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/index.html#//apple_ref/occ/instm/UITableView/dequeueReusableCellWithIdentifier:forIndexPath:" target="_blank" rel="external">苹果开发者文档</a>中是这样描述:forIndexPath的：</p>
+<blockquote>
+<p>The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method uses the index path to perform additional configuration based on the cell’s position in the table view.</p>
+<p>… Call this method from your data source object when asked to provide a new cell for the table view. This method dequeues an existing cell if one is available, or creates a new one based on the class or nib file you previously registered, and adds it to the table.</p>
+</blockquote>
+<p>当通过代码来创建UITableView而非storyboard，如果不存在可以重用的TableViewCell，则数据源对象会基于你通过<code>registerNib:forCellReuseIdentifier:</code>或<code>registerClass:forCellReuseIdentifier:</code>注册的UITableViewCell（或自定义TableViewCell）类创建一个、添加到table中，所以在使用:forIndexPath这个函数前，需要先注册（可以在<code>viewDidLoad</code>中）TableViewCell类及CellReuseIdentifier，否则程序会crash，而dequeueReusableCellWithIdentifier则不需要。</p>
+<p>可以参见Stackoverflow上的<a href="http://stackoverflow.com/questions/25826383/when-to-use-dequeuereusablecellwithidentifier-vs-dequeuereusablecellwithidentifi/25835438#25835438" target="_blank" rel="external">答案</a>。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/16/Pull_To_Refresh_TableView/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实现下拉刷新</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="diff_dequeueReusableCellWithIdentifier" data-title="UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别" data-url="http://yoursite.com/2016/01/17/diff_dequeueReusableCellWithIdentifier/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -288,8 +355,8 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

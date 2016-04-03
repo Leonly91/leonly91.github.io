@@ -134,7 +134,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Think/" style="font-size: 20px;">Think</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 15px;">iOS</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a>
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Think/" style="font-size: 15px;">Think</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a>
 					</div>
 				</section>
 				
@@ -222,11 +222,11 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-ios_programming_note" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-diff_dequeueReusableCellWithIdentifier" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/03/ios_programming_note/" class="article-date">
-  	<time datetime="2016-01-03T15:06:30.000Z" itemprop="datePublished">2016-01-03</time>
+      <a href="/2016/01/17/diff_dequeueReusableCellWithIdentifier/" class="article-date">
+  	<time datetime="2016-01-17T05:53:09.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
   
@@ -239,7 +239,210 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/03/ios_programming_note/">《iOS编程》(Big Nerd Ranch)学习笔记</a>
+      <a class="article-title" href="/2016/01/17/diff_dequeueReusableCellWithIdentifier/">UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/index.html#//apple_ref/occ/instm/UITableView/dequeueReusableCellWithIdentifier:forIndexPath:" target="_blank" rel="external">苹果开发者文档</a>中是这样描述:forIndexPath的：</p>
+<blockquote>
+<p>The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method uses the index path to perform additional configuration based on the cell’s position in the table view.</p>
+<p>… Call this method from your data source object when asked to provide a new cell for the table view. This method dequeues an existing cell if one is available, or creates a new one based on the class or nib file you previously registered, and adds it to the table.</p>
+</blockquote>
+<p>当通过代码来创建UITableView而非storyboard，如果不存在可以重用的TableViewCell，则数据源对象会基于你通过<code>registerNib:forCellReuseIdentifier:</code>或<code>registerClass:forCellReuseIdentifier:</code>注册的UITableViewCell（或自定义TableViewCell）类创建一个、添加到table中，所以在使用:forIndexPath这个函数前，需要先注册（可以在<code>viewDidLoad</code>中）TableViewCell类及CellReuseIdentifier，否则程序会crash，而dequeueReusableCellWithIdentifier则不需要。</p>
+<p>可以参见Stackoverflow上的<a href="http://stackoverflow.com/questions/25826383/when-to-use-dequeuereusablecellwithidentifier-vs-dequeuereusablecellwithidentifi/25835438#25835438" target="_blank" rel="external">答案</a>。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Pull_To_Refresh_TableView" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/16/Pull_To_Refresh_TableView/" class="article-date">
+  	<time datetime="2016-01-16T09:16:05.000Z" itemprop="datePublished">2016-01-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/16/Pull_To_Refresh_TableView/">实现下拉刷新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="UIScrollView">UIScrollView</h2><h3 id="1-_ContentSize">1. ContentSize</h3><h3 id="2-_ContentOffset">2. ContentOffset</h3><h3 id="3-_ContentInsets">3. ContentInsets</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-xcode_hot_key" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/05/xcode_hot_key/" class="article-date">
+  	<time datetime="2016-01-05T13:53:00.000Z" itemprop="datePublished">2016-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/05/xcode_hot_key/">Xcode常用快捷键不完全速查</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>含义</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跳转到指定行</td>
+<td>cmd + l</td>
+</tr>
+<tr>
+<td>跳转到变量定义的地方</td>
+<td>ctrl + cmd + j</td>
+</tr>
+<tr>
+<td>代码上移</td>
+<td>opt + cmd + [</td>
+</tr>
+<tr>
+<td>代码下移</td>
+<td>opt + cmd + ]</td>
+</tr>
+<tr>
+<td>.h/.m之间切换</td>
+<td>ctrl + cmd + 上下箭头</td>
+</tr>
+<tr>
+<td>CodePilot</td>
+<td>cmd + shitf + x</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ios_programming_note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/04/ios_programming_note/" class="article-date">
+  	<time datetime="2016-01-04T12:29:43.000Z" itemprop="datePublished">2016-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/04/ios_programming_note/">《iOS编程》(Big Nerd Ranch)学习笔记</a>
     </h1>
   
 
@@ -318,90 +521,6 @@ var _hmt = _hmt || [];
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-xcode_hot_key" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/02/xcode_hot_key/" class="article-date">
-  	<time datetime="2016-01-02T14:19:15.000Z" itemprop="datePublished">2016-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/02/xcode_hot_key/">Xcode常用快捷键不完全速查</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table>
-<thead>
-<tr>
-<th>含义</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>跳转到指定行</td>
-<td>cmd + l</td>
-</tr>
-<tr>
-<td>跳转到变量定义的地方</td>
-<td>ctrl + cmd + j</td>
-</tr>
-<tr>
-<td>代码上移</td>
-<td>opt + cmd + [</td>
-</tr>
-<tr>
-<td>代码下移</td>
-<td>opt + cmd + ]</td>
-</tr>
-<tr>
-<td>.h/.m之间切换</td>
-<td>ctrl + cmd + 上下箭头</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
 	</div>
 
       
@@ -742,65 +861,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/08/02/hello-world/" class="article-date">
-  	<time datetime="2015-08-02T10:01:03.000Z" itemprop="datePublished">2015-08-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
