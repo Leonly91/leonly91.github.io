@@ -15,7 +15,7 @@ The index path specifying the location of the cell. The data source receives thi
 <meta property="og:description" content="苹果开发者文档中是这样描述:forIndexPath的：
 
 The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method use">
-<meta property="og:updated_time" content="2016-01-17T05:53:09.000Z">
+<meta property="og:updated_time" content="2016-01-17T05:54:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别">
 <meta name="twitter:description" content="苹果开发者文档中是这样描述:forIndexPath的：
@@ -141,7 +141,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Think/" style="font-size: 15px;">Think</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a>
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Think/" style="font-size: 15px;">Think</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/饭否-API/" style="font-size: 10px;">饭否 API</a>
 					</div>
 				</section>
 				
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
   
     <div class="article-meta">
       <a href="/2016/01/17/diff_dequeueReusableCellWithIdentifier/" class="article-date">
-  	<time datetime="2016-01-17T05:53:09.000Z" itemprop="datePublished">2016-01-17</time>
+  	<time datetime="2016-01-17T05:54:46.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
   
@@ -266,8 +266,7 @@ var _hmt = _hmt || [];
       
         <p><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/index.html#//apple_ref/occ/instm/UITableView/dequeueReusableCellWithIdentifier:forIndexPath:" target="_blank" rel="external">苹果开发者文档</a>中是这样描述:forIndexPath的：</p>
 <blockquote>
-<p>The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method uses the index path to perform additional configuration based on the cell’s position in the table view.</p>
-<p>… Call this method from your data source object when asked to provide a new cell for the table view. This method dequeues an existing cell if one is available, or creates a new one based on the class or nib file you previously registered, and adds it to the table.</p>
+<p>The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method uses the index path to perform additional configuration based on the cell’s position in the table view.<br>… Call this method from your data source object when asked to provide a new cell for the table view. This method dequeues an existing cell if one is available, or creates a new one based on the class or nib file you previously registered, and adds it to the table.</p>
 </blockquote>
 <p>当通过代码来创建UITableView而非storyboard，如果不存在可以重用的TableViewCell，则数据源对象会基于你通过<code>registerNib:forCellReuseIdentifier:</code>或<code>registerClass:forCellReuseIdentifier:</code>注册的UITableViewCell（或自定义TableViewCell）类创建一个、添加到table中，所以在使用:forIndexPath这个函数前，需要先注册（可以在<code>viewDidLoad</code>中）TableViewCell类及CellReuseIdentifier，否则程序会crash，而dequeueReusableCellWithIdentifier则不需要。</p>
 <p>可以参见Stackoverflow上的<a href="http://stackoverflow.com/questions/25826383/when-to-use-dequeuereusablecellwithidentifier-vs-dequeuereusablecellwithidentifi/25835438#25835438" target="_blank" rel="external">答案</a>。</p>
@@ -279,6 +278,15 @@ var _hmt = _hmt || [];
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/01/24/xcode_hot_key/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Xcode常用快捷键不完全速查
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/16/Pull_To_Refresh_TableView/" id="article-nav-older" class="article-nav-link-wrap">

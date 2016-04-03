@@ -134,7 +134,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Think/" style="font-size: 15px;">Think</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a>
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Think/" style="font-size: 15px;">Think</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/饭否-API/" style="font-size: 10px;">饭否 API</a>
 					</div>
 				</section>
 				
@@ -222,11 +222,225 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-edgesForExtendedLayout_ios7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/03/edgesForExtendedLayout_ios7/" class="article-date">
+  	<time datetime="2016-04-03T03:40:42.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/03/edgesForExtendedLayout_ios7/">iOS7新特性--edgesForExtendedLayout</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实现下拉刷新时遇到一个问题：将UINavigationController作为UITableView的容器时，在TableViewController的viewDidAppear获取tableView.contentOffset.y的值为-64，即tableView的左上角向下偏移了64个像素点，而不是预期的0，后来查资料后发现，这是iOS7的一个新特性-UIViewController.edgesForExtendedLayout，当你的容器是UINavigationController时，默认的布局将从navigationbar开始，如果要让容器内元素布局从0开始，则在viewDidLoad内设置viewController.edgesForExtendedLaout = UIRectEdgeNone即可。（通过设置UINavigationController.navigationBar.translucent = NO也能实现同样效果)。<br>如果想实现tableView从左上角开始显示，则设置viewController.automaticallyAdjustsScrollViewInsets = NO; 这样tableView最上面会被导航栏遮挡住。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-fanfou_api" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/27/fanfou_api/" class="article-date">
+  	<time datetime="2016-03-27T15:23:46.000Z" itemprop="datePublished">2016-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/27/fanfou_api/">坑爹的饭否API</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」</li>
+<li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp;requesToken_secret”!</li>
+<li>建议结合专业Oauth认证流程文档看比如新浪微博的就写的很详细，不会埋坑，否则遇到问题基本靠猜，签名认证失败时返回的baseString也是没有用的</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/饭否-API/">饭否 API</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-xcode_hot_key" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/xcode_hot_key/" class="article-date">
+  	<time datetime="2016-01-24T04:10:34.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/24/xcode_hot_key/">Xcode常用快捷键不完全速查</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>含义</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跳转到指定行</td>
+<td>cmd + l</td>
+</tr>
+<tr>
+<td>跳转到变量定义的地方</td>
+<td>ctrl + cmd + j</td>
+</tr>
+<tr>
+<td>代码上移</td>
+<td>opt + cmd + [</td>
+</tr>
+<tr>
+<td>代码下移</td>
+<td>opt + cmd + ]</td>
+</tr>
+<tr>
+<td>.h/.m之间切换</td>
+<td>ctrl + cmd + 上下箭头</td>
+</tr>
+<tr>
+<td>CodePilot</td>
+<td>cmd + shitf + x</td>
+</tr>
+<tr>
+<td>同一个程序不同窗口切换</td>
+<td>cmd + ~</td>
+</tr>
+<tr>
+<td>编译运行</td>
+<td>cmd + r</td>
+</tr>
+<tr>
+<td>停止调试运行</td>
+<td>cmd + .</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-diff_dequeueReusableCellWithIdentifier" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/01/17/diff_dequeueReusableCellWithIdentifier/" class="article-date">
-  	<time datetime="2016-01-17T05:53:09.000Z" itemprop="datePublished">2016-01-17</time>
+  	<time datetime="2016-01-17T05:54:46.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     </div>
   
@@ -250,8 +464,7 @@ var _hmt = _hmt || [];
       
         <p><a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/index.html#//apple_ref/occ/instm/UITableView/dequeueReusableCellWithIdentifier:forIndexPath:" target="_blank" rel="external">苹果开发者文档</a>中是这样描述:forIndexPath的：</p>
 <blockquote>
-<p>The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method uses the index path to perform additional configuration based on the cell’s position in the table view.</p>
-<p>… Call this method from your data source object when asked to provide a new cell for the table view. This method dequeues an existing cell if one is available, or creates a new one based on the class or nib file you previously registered, and adds it to the table.</p>
+<p>The index path specifying the location of the cell. The data source receives this information when it is asked for the cell and should just pass it along. This method uses the index path to perform additional configuration based on the cell’s position in the table view.<br>… Call this method from your data source object when asked to provide a new cell for the table view. This method dequeues an existing cell if one is available, or creates a new one based on the class or nib file you previously registered, and adds it to the table.</p>
 </blockquote>
 <p>当通过代码来创建UITableView而非storyboard，如果不存在可以重用的TableViewCell，则数据源对象会基于你通过<code>registerNib:forCellReuseIdentifier:</code>或<code>registerClass:forCellReuseIdentifier:</code>注册的UITableViewCell（或自定义TableViewCell）类创建一个、添加到table中，所以在使用:forIndexPath这个函数前，需要先注册（可以在<code>viewDidLoad</code>中）TableViewCell类及CellReuseIdentifier，否则程序会crash，而dequeueReusableCellWithIdentifier则不需要。</p>
 <p>可以参见Stackoverflow上的<a href="http://stackoverflow.com/questions/25826383/when-to-use-dequeuereusablecellwithidentifier-vs-dequeuereusablecellwithidentifi/25835438#25835438" target="_blank" rel="external">答案</a>。</p>
@@ -318,94 +531,6 @@ var _hmt = _hmt || [];
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-xcode_hot_key" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/05/xcode_hot_key/" class="article-date">
-  	<time datetime="2016-01-05T13:53:00.000Z" itemprop="datePublished">2016-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/05/xcode_hot_key/">Xcode常用快捷键不完全速查</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table>
-<thead>
-<tr>
-<th>含义</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>跳转到指定行</td>
-<td>cmd + l</td>
-</tr>
-<tr>
-<td>跳转到变量定义的地方</td>
-<td>ctrl + cmd + j</td>
-</tr>
-<tr>
-<td>代码上移</td>
-<td>opt + cmd + [</td>
-</tr>
-<tr>
-<td>代码下移</td>
-<td>opt + cmd + ]</td>
-</tr>
-<tr>
-<td>.h/.m之间切换</td>
-<td>ctrl + cmd + 上下箭头</td>
-</tr>
-<tr>
-<td>CodePilot</td>
-<td>cmd + shitf + x</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
 	</div>
 
       
@@ -707,141 +832,6 @@ var _hmt = _hmt || [];
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Think/">Think</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Error-Cannot-GET-atom-xml-for-hexo-RSS" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/04/Error-Cannot-GET-atom-xml-for-hexo-RSS/" class="article-date">
-  	<time datetime="2015-09-04T06:06:59.000Z" itemprop="datePublished">2015-09-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/04/Error-Cannot-GET-atom-xml-for-hexo-RSS/">Error: Cannot GET atom.xml for hexo RSS.</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装hexo-generator-feed和hexo-generator-sitemap插件后，访问站点<a href="http://0.0.0.0:4000/atom.xml" target="_blank" rel="external">http://0.0.0.0:4000/atom.xml</a>显示“Cannot GET atom.xml”：无法获取atom.xml，sitemap.xml也是如此，想必是哪里配置不正确。查看hexo/package.json，发现里面没有hexo-generator-feed和hexo-generator-sitemap的配置，那就添加一下，版本号在对应插件目录下的package.json中可以查到。</p>
-<pre><code>  {
-  "<span class="attribute">name</span>": <span class="value"><span class="string">"hexo-site"</span></span>,
-  "<span class="attribute">version</span>": <span class="value"><span class="string">"0.0.0"</span></span>,
-  "<span class="attribute">private</span>": <span class="value"><span class="literal">true</span></span>,
-  "<span class="attribute">hexo</span>": <span class="value">{
-    "<span class="attribute">version</span>": <span class="value"><span class="string">"3.1.1"</span>
-  </span>}</span>,
-  "<span class="attribute">dependencies</span>": <span class="value">{
-    "<span class="attribute">hexo</span>": <span class="value"><span class="string">"^3.1.0"</span></span>,
-    "<span class="attribute">hexo-deployer-git</span>": <span class="value"><span class="string">"0.0.4"</span></span>,
-    "<span class="attribute">hexo-generator-archive</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
-    "<span class="attribute">hexo-generator-category</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
-    "<span class="attribute">hexo-generator-index</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
-    "<span class="attribute">hexo-generator-tag</span>": <span class="value"><span class="string">"^0.1.1"</span></span>,
-    "<span class="attribute">hexo-renderer-ejs</span>": <span class="value"><span class="string">"^0.1.0"</span></span>,
-    "<span class="attribute">hexo-renderer-marked</span>": <span class="value"><span class="string">"^0.2.4"</span></span>,
-    "<span class="attribute">hexo-renderer-stylus</span>": <span class="value"><span class="string">"^0.2.3"</span></span>,
-    "<span class="attribute">hexo-server</span>": <span class="value"><span class="string">"^0.1.2"</span></span>,
-    "<span class="attribute">hexo-generator-feed</span>": <span class="value"><span class="string">"^1.0.3"</span></span>,
-    "<span class="attribute">hexo-generator-sitemap</span>": <span class="value"><span class="string">"^1.0.1"</span>
-  </span>}
-</span>}
-</code></pre><p>配置修改完后<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
-<p>重新生成页面后，再访问atom.xml就有了。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Git-clone-timeout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/03/Git-clone-timeout/" class="article-date">
-  	<time datetime="2015-09-03T09:16:03.000Z" itemprop="datePublished">2015-09-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/03/Git-clone-timeout/">Git clone timeout</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When I clone from github.com on terminate it occurs an error : RPC failed; result=56, HTTP code = 200, and then config likes below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> GIT_TRACE_PACKET=<span class="number">1</span></span><br><span class="line">$ <span class="built_in">export</span> GIT_TRACE=<span class="number">1</span></span><br><span class="line">$ <span class="built_in">export</span> GIT_CURL_VERBOSE=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<p>It will fix when you do git clone again.<br>See detail from <a href="https://confluence.atlassian.com/pages/viewpage.action?pageId=693897332" target="_blank" rel="external">Here</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 	</div>
 
       
