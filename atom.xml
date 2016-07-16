@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Leonly91's Personal Blog]]></title>
-  <subtitle><![CDATA[Hello, World!]]></subtitle>
+  <subtitle><![CDATA[当你的才华还撑不起你的野心的时候,你就应该静下心来学习]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
   <updated>2016-07-16T08:49:19.000Z</updated>
