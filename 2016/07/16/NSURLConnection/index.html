@@ -3,132 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Xcode常用快捷键不完全速查 | Leonly91&#39;s Personal Blog</title>
+  <title>NSURLConnection &amp; NSURLRequest | Leonly91&#39;s Personal Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="含义
-快捷键
-
-
-
-
-跳转到指定行
-cmd + l
-
-
-跳转到变量定义的地方
-ctrl + cmd + j
-
-
-代码上移
-opt + cmd + [
-
-
-代码下移
-opt + cmd + ]
-
-
-.h/.m之间切换
-ctrl + cmd + 上下箭头
-
-
-CodePilot
-cmd + shitf + x
-
-
-同一个程序不同窗口切换
-cmd + ~
-
-
-编译运行
-cmd + r
-
-
-停止调试运行">
+  <meta name="description" content="在iOS 7 推出NSURLSession之前，苹果系统提供NSURLConnection&amp;amp;NSURLRequest来进行网络数据访问。NURLConnection访问网络的方式包括1)同步方式;2)异步方式;所谓同步即数据请求在主线程进行，一旦发起数据请求，则会阻塞主线程直到服务器返回响应或超时，显然这是用户体验不友好的方式。相反，异步方式即使用多线程进行数据请求，和主线程并发执行，不会">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode常用快捷键不完全速查">
-<meta property="og:url" content="http://yoursite.com/2016/01/24/xcode_hot_key/index.html">
+<meta property="og:title" content="NSURLConnection & NSURLRequest">
+<meta property="og:url" content="http://yoursite.com/2016/07/16/NSURLConnection/index.html">
 <meta property="og:site_name" content="Leonly91's Personal Blog">
-<meta property="og:description" content="含义
-快捷键
-
-
-
-
-跳转到指定行
-cmd + l
-
-
-跳转到变量定义的地方
-ctrl + cmd + j
-
-
-代码上移
-opt + cmd + [
-
-
-代码下移
-opt + cmd + ]
-
-
-.h/.m之间切换
-ctrl + cmd + 上下箭头
-
-
-CodePilot
-cmd + shitf + x
-
-
-同一个程序不同窗口切换
-cmd + ~
-
-
-编译运行
-cmd + r
-
-
-停止调试运行">
-<meta property="og:updated_time" content="2016-01-24T04:10:34.000Z">
+<meta property="og:description" content="在iOS 7 推出NSURLSession之前，苹果系统提供NSURLConnection&amp;amp;NSURLRequest来进行网络数据访问。NURLConnection访问网络的方式包括1)同步方式;2)异步方式;所谓同步即数据请求在主线程进行，一旦发起数据请求，则会阻塞主线程直到服务器返回响应或超时，显然这是用户体验不友好的方式。相反，异步方式即使用多线程进行数据请求，和主线程并发执行，不会">
+<meta property="og:updated_time" content="2016-07-16T08:20:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode常用快捷键不完全速查">
-<meta name="twitter:description" content="含义
-快捷键
-
-
-
-
-跳转到指定行
-cmd + l
-
-
-跳转到变量定义的地方
-ctrl + cmd + j
-
-
-代码上移
-opt + cmd + [
-
-
-代码下移
-opt + cmd + ]
-
-
-.h/.m之间切换
-ctrl + cmd + 上下箭头
-
-
-CodePilot
-cmd + shitf + x
-
-
-同一个程序不同窗口切换
-cmd + ~
-
-
-编译运行
-cmd + r
-
-
-停止调试运行">
+<meta name="twitter:title" content="NSURLConnection & NSURLRequest">
+<meta name="twitter:description" content="在iOS 7 推出NSURLSession之前，苹果系统提供NSURLConnection&amp;amp;NSURLRequest来进行网络数据访问。NURLConnection访问网络的方式包括1)同步方式;2)异步方式;所谓同步即数据请求在主线程进行，一旦发起数据请求，则会阻塞主线程直到服务器返回响应或超时，显然这是用户体验不友好的方式。相反，异步方式即使用多线程进行数据请求，和主线程并发执行，不会">
   
     <link rel="alternative" href="/atom.xml" title="Leonly91&#39;s Personal Blog" type="application/atom+xml">
   
@@ -335,11 +221,11 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-xcode_hot_key" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-NSURLConnection" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/24/xcode_hot_key/" class="article-date">
-  	<time datetime="2016-01-24T04:10:34.000Z" itemprop="datePublished">2016-01-24</time>
+      <a href="/2016/07/16/NSURLConnection/" class="article-date">
+  	<time datetime="2016-07-16T08:20:36.000Z" itemprop="datePublished">2016-07-16</time>
 </a>
     </div>
   
@@ -352,7 +238,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Xcode常用快捷键不完全速查
+      NSURLConnection &amp; NSURLRequest
     </h1>
   
 
@@ -361,7 +247,7 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 	</div>
 
         
@@ -372,52 +258,24 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <table>
-<thead>
-<tr>
-<th>含义</th>
-<th>快捷键</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>跳转到指定行</td>
-<td>cmd + l</td>
-</tr>
-<tr>
-<td>跳转到变量定义的地方</td>
-<td>ctrl + cmd + j</td>
-</tr>
-<tr>
-<td>代码上移</td>
-<td>opt + cmd + [</td>
-</tr>
-<tr>
-<td>代码下移</td>
-<td>opt + cmd + ]</td>
-</tr>
-<tr>
-<td>.h/.m之间切换</td>
-<td>ctrl + cmd + 上下箭头</td>
-</tr>
-<tr>
-<td>CodePilot</td>
-<td>cmd + shitf + x</td>
-</tr>
-<tr>
-<td>同一个程序不同窗口切换</td>
-<td>cmd + ~</td>
-</tr>
-<tr>
-<td>编译运行</td>
-<td>cmd + r</td>
-</tr>
-<tr>
-<td>停止调试运行</td>
-<td>cmd + .</td>
-</tr>
-</tbody>
-</table>
+        <p>在iOS 7 推出NSURLSession之前，苹果系统提供NSURLConnection&amp;NSURLRequest来进行网络数据访问。NURLConnection访问网络的方式包括1)同步方式;2)异步方式;所谓同步即数据请求在主线程进行，一旦发起数据请求，则会阻塞主线程直到服务器返回响应或超时，显然这是用户体验不友好的方式。相反，异步方式即使用多线程进行数据请求，和主线程并发执行，不会阻塞主线程。<br>一、基本使用流程</p>
+<ul>
+<li>NSURL</li>
+<li>NSURLRequest创建请求</li>
+<li>NSURLConnection发送请求</li>
+<li>处理返回结果</li>
+</ul>
+<p>二、两种使用方式</p>
+<ul>
+<li>代理方法：通过实现NSURLConnectionDelegate和NSURLConnectionDataDelegate协议，在delegate method中可以监控全过程</li>
+<li>block方式：响应以block方式处理，无法监控全过程。</li>
+</ul>
+<p>代码示例：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    -(<span class="type">void</span>)setupNetworkViaURLConnection:(<span class="type">NSString</span> *)url <span class="keyword">method</span>:(<span class="type">NSString</span> *)<span class="keyword">method</span>&#123;</span><br><span class="line">    <span class="type">NSMutableURLRequest</span> *request = [[<span class="type">NSMutableURLRequest</span> alloc] initWithURL:[<span class="type">NSURL</span> <span class="type">URLWithString</span>:url] cachePolicy:<span class="type">NSURLRequestUseProtocolCachePolicy</span> timeoutInterval:<span class="number">60</span>];</span><br><span class="line"></span><br><span class="line">    <span class="type">NSArray</span> *methodArray = @[@<span class="string">"GET"</span>, @<span class="string">"POST"</span>, @<span class="string">"PUT"</span>, @<span class="string">"DELETE"</span>];</span><br><span class="line">    <span class="keyword">if</span> (![methodArray containsObject:<span class="keyword">method</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span>;//<span class="keyword">method</span> <span class="type">ERROR</span>.</span><br><span class="line">    &#125;</span><br><span class="line">    request.<span class="type">HTTPMethod</span> = <span class="keyword">method</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="type">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="type">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="type">NSURLResponse</span> *response, <span class="type">NSData</span> *data, <span class="type">NSError</span> *connectionError) &#123;</span><br><span class="line">        <span class="keyword">if</span> (connectionError != <span class="keyword">nil</span> || data ==<span class="keyword">nil</span>)&#123;</span><br><span class="line">            //failure</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            //success</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三、处理后台请求（实现思路？）</p>
+<ul>
+<li>后台上传</li>
+<li>后台下载</li>
+</ul>
 
       
     </div>
@@ -427,18 +285,18 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2016/07/06/fanfou_api/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/16/NSURLSession/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          坑爹的饭否API
+          NSURLSession
         
       </div>
     </a>
   
   
-    <a href="/2016/01/17/diff_dequeueReusableCellWithIdentifier/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UITableView的dequeueReusableCellWithIdentifier和dequeueReusableCellWithIdentifier:forIndexPath的区别</div>
+    <a href="/2016/07/16/edgesForExtendedLayout_ios7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS7新特性--edgesForExtendedLayout</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -467,7 +325,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="xcode_hot_key" data-title="Xcode常用快捷键不完全速查" data-url="http://yoursite.com/2016/01/24/xcode_hot_key/"></div>
+	<div class="ds-thread" data-thread-key="NSURLConnection" data-title="NSURLConnection &amp; NSURLRequest" data-url="http://yoursite.com/2016/07/16/NSURLConnection/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

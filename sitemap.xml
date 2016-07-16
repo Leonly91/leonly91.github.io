@@ -2,13 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/04/03/edgesForExtendedLayout_ios7/</loc>
-    <lastmod>2016-04-03T03:40:42.000Z</lastmod>
+    <loc>http://yoursite.com/2016/07/16/NSURLSession/</loc>
+    <lastmod>2016-07-16T08:25:38.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/03/27/fanfou_api/</loc>
-    <lastmod>2016-03-27T15:23:46.000Z</lastmod>
+    <loc>http://yoursite.com/2016/07/16/NSURLConnection/</loc>
+    <lastmod>2016-07-16T08:20:36.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/07/16/edgesForExtendedLayout_ios7/</loc>
+    <lastmod>2016-07-16T08:18:51.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/07/06/fanfou_api/</loc>
+    <lastmod>2016-07-06T12:33:54.000Z</lastmod>
   </url>
   
   <url>

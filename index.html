@@ -222,11 +222,11 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-edgesForExtendedLayout_ios7" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-NSURLSession" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/03/edgesForExtendedLayout_ios7/" class="article-date">
-  	<time datetime="2016-04-03T03:40:42.000Z" itemprop="datePublished">2016-04-03</time>
+      <a href="/2016/07/16/NSURLSession/" class="article-date">
+  	<time datetime="2016-07-16T08:25:38.000Z" itemprop="datePublished">2016-07-16</time>
 </a>
     </div>
   
@@ -239,7 +239,148 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/03/edgesForExtendedLayout_ios7/">iOS7新特性--edgesForExtendedLayout</a>
+      <a class="article-title" href="/2016/07/16/NSURLSession/">NSURLSession</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS 7引入NSURLSession类以替代NSURLConnection，NSURLSession相比NSURLConnection的优势在于处理后台请求更强大。</p>
+<p>NSURLSession支持三种配置类型：<br>Default：默认配置，支持配置使用缓存、身份验证，数据以文件形式保存在磁盘中<br>Ephemeral:及时的请求类型，不使用缓存、身份验证，数据保存在RAM中<br>Background:后台类型，支持在后台完成完成请求任务</p>
+<p>在NSURLSession中添加的请求任务支持三种：<br>数据任务：使用NSData进行数据的发送和获取，一般用于短数据的任务；<br>下载任务：从文件下载数据，支持后台下载；<br>上传任务：以文件的的形式上传数据，支持后台上传。</p>
+<p>代码示例：</p>
+<ol>
+<li>通过block</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//1. 创建配置类型对象</span></span><br><span class="line"><span class="built_in">NSURLSessionConfiguration</span> *configuration = [<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration];</span><br><span class="line"><span class="comment">//2. 创建请求对象</span></span><br><span class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:url]];</span><br><span class="line"><span class="comment">//3. 创建Session对象</span></span><br><span class="line"><span class="built_in">NSURLSession</span> *defaultSession = [<span class="built_in">NSURLSession</span> sessionWithConfiguration:configuration];</span><br><span class="line"><span class="comment">//4. 创建任务</span></span><br><span class="line"><span class="built_in">NSURLSessionTask</span> *task = [defaultSession dataTaskWithRequest:request completionHandler:^(<span class="built_in">NSData</span> *data, <span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, data);</span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//5. 启动任务</span></span><br><span class="line">[task resume];</span><br></pre></td></tr></table></figure>
+<ol>
+<li>通过代理方法。需要实现NSURLSessionDataDelegate协议</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">NSURLSessionDataDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)setupNetworkViaURLSessionDelegate:(<span class="built_in">NSString</span> *)url method:(<span class="built_in">NSString</span> *)method&#123;</span><br><span class="line">    <span class="built_in">NSURLSessionConfiguration</span> *configuration = [<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration];</span><br><span class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:url]];</span><br><span class="line">    <span class="built_in">NSURLSession</span> *session = [<span class="built_in">NSURLSession</span> sessionWithConfiguration:configuration delegate:<span class="keyword">self</span> delegateQueue:[<span class="built_in">NSOperationQueue</span> mainQueue]];</span><br><span class="line">    <span class="built_in">NSURLSessionTask</span> *task = [session dataTaskWithRequest:request];</span><br><span class="line">    [task resume];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma NSURLSessionDataDelegate</span></span><br><span class="line"><span class="comment">//开始接收数据</span></span><br><span class="line">-(<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session dataTask:(<span class="built_in">NSURLSessionDataTask</span> *)dataTask didReceiveData:(<span class="built_in">NSData</span> *)data&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//结束接收数据</span></span><br><span class="line">-(<span class="keyword">void</span>)URLSession:(<span class="built_in">NSURLSession</span> *)session task:(<span class="built_in">NSURLSessionTask</span> *)task didCompleteWithError:(<span class="built_in">NSError</span> *)error&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后台下载任务：<br>这是NSURLSession的优势所在，要进行后台下载任务，需要实现NSURLSessionDownloadDelegate协议<br>如果在下载进行过程中App切入后台（点击Home键，来电等），URLSession的delegate不会再收到task相关消息，但下载任务还会继续执行，当后台下载任务完成后会调用AppDelegate中的<br><figure class="highlight"><figcaption><span>*)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#36890;&#30693;App&#65292;&#28982;&#21518;App&#20250;&#22312;&#21518;&#21488;&#35843;&#29992;NSURLSession&#20195;&#29702;&#26041;&#27861;&#36890;&#30693;&#19979;&#36733;&#32467;&#26524;&#65306;&#10;&#10;//&#19979;&#36733;&#23436;&#25104;&#21518;&#35843;&#29992;&#10;&#19979;&#36733;&#25104;&#21151;&#65306;```-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location</span><br></pre></td></tr></table></figure></p>
+<p>下载成功/失败：<code>-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error</code></p>
+<p>后台工作流程分析：<a href="http://www.cnblogs.com/biosli/p/iOS_Network_URL_Session.html" target="_blank" rel="external">http://www.cnblogs.com/biosli/p/iOS_Network_URL_Session.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-NSURLConnection" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/16/NSURLConnection/" class="article-date">
+  	<time datetime="2016-07-16T08:20:36.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/NSURLConnection/">NSURLConnection &amp; NSURLRequest</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在iOS 7 推出NSURLSession之前，苹果系统提供NSURLConnection&amp;NSURLRequest来进行网络数据访问。NURLConnection访问网络的方式包括1)同步方式;2)异步方式;所谓同步即数据请求在主线程进行，一旦发起数据请求，则会阻塞主线程直到服务器返回响应或超时，显然这是用户体验不友好的方式。相反，异步方式即使用多线程进行数据请求，和主线程并发执行，不会阻塞主线程。<br>一、基本使用流程</p>
+<ul>
+<li>NSURL</li>
+<li>NSURLRequest创建请求</li>
+<li>NSURLConnection发送请求</li>
+<li>处理返回结果</li>
+</ul>
+<p>二、两种使用方式</p>
+<ul>
+<li>代理方法：通过实现NSURLConnectionDelegate和NSURLConnectionDataDelegate协议，在delegate method中可以监控全过程</li>
+<li>block方式：响应以block方式处理，无法监控全过程。</li>
+</ul>
+<p>代码示例：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    -(<span class="type">void</span>)setupNetworkViaURLConnection:(<span class="type">NSString</span> *)url <span class="keyword">method</span>:(<span class="type">NSString</span> *)<span class="keyword">method</span>&#123;</span><br><span class="line">    <span class="type">NSMutableURLRequest</span> *request = [[<span class="type">NSMutableURLRequest</span> alloc] initWithURL:[<span class="type">NSURL</span> <span class="type">URLWithString</span>:url] cachePolicy:<span class="type">NSURLRequestUseProtocolCachePolicy</span> timeoutInterval:<span class="number">60</span>];</span><br><span class="line"></span><br><span class="line">    <span class="type">NSArray</span> *methodArray = @[@<span class="string">"GET"</span>, @<span class="string">"POST"</span>, @<span class="string">"PUT"</span>, @<span class="string">"DELETE"</span>];</span><br><span class="line">    <span class="keyword">if</span> (![methodArray containsObject:<span class="keyword">method</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span>;//<span class="keyword">method</span> <span class="type">ERROR</span>.</span><br><span class="line">    &#125;</span><br><span class="line">    request.<span class="type">HTTPMethod</span> = <span class="keyword">method</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="type">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="type">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="type">NSURLResponse</span> *response, <span class="type">NSData</span> *data, <span class="type">NSError</span> *connectionError) &#123;</span><br><span class="line">        <span class="keyword">if</span> (connectionError != <span class="keyword">nil</span> || data ==<span class="keyword">nil</span>)&#123;</span><br><span class="line">            //failure</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            //success</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>三、处理后台请求（实现思路？）</p>
+<ul>
+<li>后台上传</li>
+<li>后台下载</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-edgesForExtendedLayout_ios7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/16/edgesForExtendedLayout_ios7/" class="article-date">
+  	<time datetime="2016-07-16T08:18:51.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/edgesForExtendedLayout_ios7/">iOS7新特性--edgesForExtendedLayout</a>
     </h1>
   
 
@@ -280,8 +421,8 @@ var _hmt = _hmt || [];
     <article id="post-fanfou_api" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/27/fanfou_api/" class="article-date">
-  	<time datetime="2016-03-27T15:23:46.000Z" itemprop="datePublished">2016-03-27</time>
+      <a href="/2016/07/06/fanfou_api/" class="article-date">
+  	<time datetime="2016-07-06T12:33:55.000Z" itemprop="datePublished">2016-07-06</time>
 </a>
     </div>
   
@@ -294,7 +435,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/27/fanfou_api/">坑爹的饭否API</a>
+      <a class="article-title" href="/2016/07/06/fanfou_api/">坑爹的饭否API</a>
     </h1>
   
 
@@ -307,6 +448,23 @@ var _hmt = _hmt || [];
 <li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」</li>
 <li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp;requesToken_secret”!</li>
 <li>建议结合专业Oauth认证流程文档看比如新浪微博的就写的很详细，不会埋坑，否则遇到问题基本靠猜，签名认证失败时返回的baseString也是没有用的</li>
+<li>授权登陆后获取当前用户的资料，应使用account.verify credentials这个API</li>
+<li>JSON -&gt; Object iOS平台的JSON数据解析(Jastor</li>
+<li>UITableViewCell的presentViewController:nav animated:TRUE completion:nil];单击时存在时延，双击则不会—&gt;why &amp; how to fix it?</li>
+<li>提交的参数里包含空格，斜杠等字符时，返回签名错误时如何处理？<br><a href="https://dev.twitter.com/oauth/overview/percent-encoding-parameters" target="_blank" rel="external">https://dev.twitter.com/oauth/overview/percent-encoding-parameters</a><br>7.1 签名时，在组装为K=V的querystring之前，将V进行URLEncode编码</li>
+<li>自定义UITableViewCell时，Cell的高度根据内容高度的不同而不同， 使用UITableViewAutomaticDimension keyword</li>
+<li>发送POST请求时，如果涉及到需要填写HTTP的body，使用AFHTTPRequestOperation的- (AFHTTPRequestOperation <em>)POST:(NSString </em>)URLString<pre><code>               parameters:<span class="params">(id)</span>parameters
+constructingBodyWithBlock:<span class="params">(void <span class="params">(^)</span><span class="params">(id &lt;AFMultipartFormData&gt; formData)</span>)</span>block
+                  success:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, id responseObject)</span>)</span>success
+                  failure:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, NSError *error)</span>)</span>failure 方法，需要自己将parameters转换为QueryString添加到URLString尾。----？此处饭否的接口设计不合理，既要url中有QueryString，又要在消息体中添加参数，冗余设计。
+</code></pre></li>
+<li>在cellForRowAtIndexPath中获取UITableViewCell.frame.size.width 获取的值是320而不是375? 两种方法：1. 继承UITableViewCell重写layoutSubview.2. 使用tableview.frame.size.width</li>
+<li>UITableViewCell 中的TextView的contentSize.height为固定的初始值36，而不是根据内容动态调整。那如何让textView.contentSize根据内容动态调整呢？</li>
+<li>POST 请求失败返回”Invalid signature”时，检查参数里oauth_signature的是否处理不正确，比如被多次ULREncode.</li>
+<li>参数中内容包含中文时，AFNetworking POST方法报错。解决办法：—–post中附加参数不参与签名<br>——TODO：发布推文的计算签名时的url修改</li>
+<li>dictionary[@”h”] != 1? 的判断</li>
+<li>完成网络请求NSUrlSession基本使用的博文编写</li>
+<li>cell.imageView.frame.size.width = 0 ？</li>
 </ol>
 
       
@@ -721,117 +879,6 @@ var _hmt = _hmt || [];
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2015/">2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Think/">Think</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-pic" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/30/pic/" class="article-date">
-  	<time datetime="2015-12-30T13:37:15.000Z" itemprop="datePublished">2015-12-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/30/pic/">图床选择</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hexo的文章里偶尔需要上传图片，于是就涉及到了图床的选择，先试试droplr.com和flickr</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Think/">Think</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Think-in-Limno" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/29/Think-in-Limno/" class="article-date">
-  	<time datetime="2015-12-29T15:12:52.000Z" itemprop="datePublished">2015-12-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/29/Think-in-Limno/">Limbo有感</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://d.pr/i/1cKUX+" alt="Limbo"></p>
-<p>最近在玩一个有趣的游戏：《Limbo》（中文名地狱边境），有趣在于它所赋予的哲学气息，总感觉活脱脱就是我们的生活写照。<br>开始一路顺风顺水，慢慢的开始遇到些小困难，好在可以轻松写意地解决，然后到了比较难的关卡，智商余额不足了，这样那样都行不通，然后网上去搜攻略，突然茅塞顿开，换个思路就解决了。可是我们的生活毕竟没有攻略，也鲜有再来一次的机会。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Think/">Think</a></li></ul>
 	</div>
 
       
