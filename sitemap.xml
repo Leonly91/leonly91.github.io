@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/07/16/fanfou_api/</loc>
+    <lastmod>2016-07-16T08:28:43.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/07/16/NSURLSession/</loc>
     <lastmod>2016-07-16T08:25:38.000Z</lastmod>
   </url>
@@ -14,11 +19,6 @@
   <url>
     <loc>http://yoursite.com/2016/07/16/edgesForExtendedLayout_ios7/</loc>
     <lastmod>2016-07-16T08:18:51.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/07/06/fanfou_api/</loc>
-    <lastmod>2016-07-06T12:33:54.000Z</lastmod>
   </url>
   
   <url>

@@ -222,6 +222,82 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-fanfou_api" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/16/fanfou_api/" class="article-date">
+  	<time datetime="2016-07-16T08:28:43.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/fanfou_api/">坑爹的饭否API</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」</li>
+<li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp;requesToken_secret”!</li>
+<li>建议结合专业Oauth认证流程文档看比如新浪微博的就写的很详细，不会埋坑，否则遇到问题基本靠猜，签名认证失败时返回的baseString也是没有用的</li>
+<li>授权登陆后获取当前用户的资料，应使用account.verify credentials这个API</li>
+<li>JSON -&gt; Object iOS平台的JSON数据解析(Jastor</li>
+<li>UITableViewCell的presentViewController:nav animated:TRUE completion:nil];单击时存在时延，双击则不会—&gt;why &amp; how to fix it?</li>
+<li>提交的参数里包含空格，斜杠等字符时，返回签名错误时如何处理？<br><a href="https://dev.twitter.com/oauth/overview/percent-encoding-parameters" target="_blank" rel="external">https://dev.twitter.com/oauth/overview/percent-encoding-parameters</a><br>7.1 签名时，在组装为K=V的querystring之前，将V进行URLEncode编码</li>
+<li>自定义UITableViewCell时，Cell的高度根据内容高度的不同而不同， 使用UITableViewAutomaticDimension keyword</li>
+<li>发送POST请求时，如果涉及到需要填写HTTP的body，使用```AFHTTPRequestOperation的- (AFHTTPRequestOperation <em>)POST:(NSString </em>)URLString<pre><code>               parameters:<span class="params">(id)</span>parameters
+constructingBodyWithBlock:<span class="params">(void <span class="params">(^)</span><span class="params">(id &lt;AFMultipartFormData&gt; formData)</span>)</span>block
+                  success:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, id responseObject)</span>)</span>success
+                  failure:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, NSError *error)</span>)</span>failure ```方法，需要自己将parameters转换为QueryString添加到URLString尾。----？此处饭否的接口设计不合理，既要url中有QueryString，又要在消息体中添加参数，冗余设计。
+</code></pre></li>
+<li>在cellForRowAtIndexPath中获取UITableViewCell.frame.size.width 获取的值是320而不是375? 两种方法：1. 继承UITableViewCell重写layoutSubview.2. 使用tableview.frame.size.width</li>
+<li>UITableViewCell 中的TextView的contentSize.height为固定的初始值36，而不是根据内容动态调整。那如何让textView.contentSize根据内容动态调整呢？</li>
+<li>POST 请求失败返回”Invalid signature”时，检查参数里oauth_signature的是否处理不正确，比如被多次ULREncode.</li>
+<li>参数中内容包含中文时，AFNetworking POST方法报错。解决办法：—–post中附加参数不参与签名<br>——TODO：发布推文的计算签名时的url修改</li>
+<li>dictionary[@”h”] != 1? 的判断</li>
+<li>完成网络请求NSUrlSession基本使用的博文编写</li>
+<li>cell.imageView.frame.size.width = 0 ？</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/饭否-API/">饭否 API</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-NSURLSession" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -399,82 +475,6 @@ var _hmt = _hmt || [];
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-fanfou_api" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/06/fanfou_api/" class="article-date">
-  	<time datetime="2016-07-06T12:33:55.000Z" itemprop="datePublished">2016-07-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/06/fanfou_api/">坑爹的饭否API</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」</li>
-<li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp;requesToken_secret”!</li>
-<li>建议结合专业Oauth认证流程文档看比如新浪微博的就写的很详细，不会埋坑，否则遇到问题基本靠猜，签名认证失败时返回的baseString也是没有用的</li>
-<li>授权登陆后获取当前用户的资料，应使用account.verify credentials这个API</li>
-<li>JSON -&gt; Object iOS平台的JSON数据解析(Jastor</li>
-<li>UITableViewCell的presentViewController:nav animated:TRUE completion:nil];单击时存在时延，双击则不会—&gt;why &amp; how to fix it?</li>
-<li>提交的参数里包含空格，斜杠等字符时，返回签名错误时如何处理？<br><a href="https://dev.twitter.com/oauth/overview/percent-encoding-parameters" target="_blank" rel="external">https://dev.twitter.com/oauth/overview/percent-encoding-parameters</a><br>7.1 签名时，在组装为K=V的querystring之前，将V进行URLEncode编码</li>
-<li>自定义UITableViewCell时，Cell的高度根据内容高度的不同而不同， 使用UITableViewAutomaticDimension keyword</li>
-<li>发送POST请求时，如果涉及到需要填写HTTP的body，使用AFHTTPRequestOperation的- (AFHTTPRequestOperation <em>)POST:(NSString </em>)URLString<pre><code>               parameters:<span class="params">(id)</span>parameters
-constructingBodyWithBlock:<span class="params">(void <span class="params">(^)</span><span class="params">(id &lt;AFMultipartFormData&gt; formData)</span>)</span>block
-                  success:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, id responseObject)</span>)</span>success
-                  failure:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, NSError *error)</span>)</span>failure 方法，需要自己将parameters转换为QueryString添加到URLString尾。----？此处饭否的接口设计不合理，既要url中有QueryString，又要在消息体中添加参数，冗余设计。
-</code></pre></li>
-<li>在cellForRowAtIndexPath中获取UITableViewCell.frame.size.width 获取的值是320而不是375? 两种方法：1. 继承UITableViewCell重写layoutSubview.2. 使用tableview.frame.size.width</li>
-<li>UITableViewCell 中的TextView的contentSize.height为固定的初始值36，而不是根据内容动态调整。那如何让textView.contentSize根据内容动态调整呢？</li>
-<li>POST 请求失败返回”Invalid signature”时，检查参数里oauth_signature的是否处理不正确，比如被多次ULREncode.</li>
-<li>参数中内容包含中文时，AFNetworking POST方法报错。解决办法：—–post中附加参数不参与签名<br>——TODO：发布推文的计算签名时的url修改</li>
-<li>dictionary[@”h”] != 1? 的判断</li>
-<li>完成网络请求NSUrlSession基本使用的博文编写</li>
-<li>cell.imageView.frame.size.width = 0 ？</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/饭否-API/">饭否 API</a></li></ul>
 	</div>
 
       
