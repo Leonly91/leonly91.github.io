@@ -15,7 +15,7 @@
 <meta property="og:description" content="第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;amp;」
 第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp;amp;requesToken_secret”!
 建议结合专业Oauth认证流程文档看比如新浪微博的就写的很详细，不会埋坑，否则遇到问题基本靠猜，签名认证失败时返">
-<meta property="og:updated_time" content="2016-07-16T08:28:43.000Z">
+<meta property="og:updated_time" content="2016-07-16T08:32:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="坑爹的饭否API">
 <meta name="twitter:description" content="第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;amp;」
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
   
     <div class="article-meta">
       <a href="/2016/07/16/fanfou_api/" class="article-date">
-  	<time datetime="2016-07-16T08:28:43.000Z" itemprop="datePublished">2016-07-16</time>
+  	<time datetime="2016-07-16T08:32:47.000Z" itemprop="datePublished">2016-07-16</time>
 </a>
     </div>
   
@@ -273,11 +273,11 @@ var _hmt = _hmt || [];
 <li>UITableViewCell的presentViewController:nav animated:TRUE completion:nil];单击时存在时延，双击则不会—&gt;why &amp; how to fix it?</li>
 <li>提交的参数里包含空格，斜杠等字符时，返回签名错误时如何处理？<br><a href="https://dev.twitter.com/oauth/overview/percent-encoding-parameters" target="_blank" rel="external">https://dev.twitter.com/oauth/overview/percent-encoding-parameters</a><br>7.1 签名时，在组装为K=V的querystring之前，将V进行URLEncode编码</li>
 <li>自定义UITableViewCell时，Cell的高度根据内容高度的不同而不同， 使用UITableViewAutomaticDimension keyword</li>
-<li>发送POST请求时，如果涉及到需要填写HTTP的body，使用```AFHTTPRequestOperation的- (AFHTTPRequestOperation <em>)POST:(NSString </em>)URLString<pre><code>               parameters:<span class="params">(id)</span>parameters
-constructingBodyWithBlock:<span class="params">(void <span class="params">(^)</span><span class="params">(id &lt;AFMultipartFormData&gt; formData)</span>)</span>block
-                  success:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, id responseObject)</span>)</span>success
-                  failure:<span class="params">(void <span class="params">(^)</span><span class="params">(AFHTTPRequestOperation *operation, NSError *error)</span>)</span>failure ```方法，需要自己将parameters转换为QueryString添加到URLString尾。----？此处饭否的接口设计不合理，既要url中有QueryString，又要在消息体中添加参数，冗余设计。
-</code></pre></li>
+<li>发送POST请求时，如果涉及到需要填写HTTP的body，使用</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AFHTTPRequestOperation的- (AFHTTPRequestOperation *)POST:(<span class="built_in">NSString</span> *)URLString</span><br><span class="line">                      parameters:(<span class="keyword">id</span>)parameters</span><br><span class="line">       constructingBodyWithBlock:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> &lt;AFMultipartFormData&gt; formData))block</span><br><span class="line">                         success:(<span class="keyword">void</span> (^)(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject))success</span><br><span class="line">                         failure:(<span class="keyword">void</span> (^)(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error))failure</span><br></pre></td></tr></table></figure>
+<p>方法，需要自己将parameters转换为QueryString添加到URLString尾。—-？此处饭否的接口设计不合理，既要url中有QueryString，又要在消息体中添加参数，冗余设计。</p>
+<ol>
 <li>在cellForRowAtIndexPath中获取UITableViewCell.frame.size.width 获取的值是320而不是375? 两种方法：1. 继承UITableViewCell重写layoutSubview.2. 使用tableview.frame.size.width</li>
 <li>UITableViewCell 中的TextView的contentSize.height为固定的初始值36，而不是根据内容动态调整。那如何让textView.contentSize根据内容动态调整呢？</li>
 <li>POST 请求失败返回”Invalid signature”时，检查参数里oauth_signature的是否处理不正确，比如被多次ULREncode.</li>
