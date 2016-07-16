@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Hello, World!]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-16T08:32:47.000Z</updated>
+  <updated>2016-07-16T08:49:19.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
     <title><![CDATA[坑爹的饭否API]]></title>
     <link href="http://yoursite.com/2016/07/16/fanfou_api/"/>
     <id>http://yoursite.com/2016/07/16/fanfou_api/</id>
-    <published>2016-07-16T08:32:47.000Z</published>
-    <updated>2016-07-16T08:32:47.000Z</updated>
+    <published>2016-07-16T08:49:19.000Z</published>
+    <updated>2016-07-16T08:49:19.000Z</updated>
     <content type="html"><![CDATA[<ol>
-<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」</li>
+<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」.</li>
 <li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp;requesToken_secret”!</li>
 <li>建议结合专业Oauth认证流程文档看比如新浪微博的就写的很详细，不会埋坑，否则遇到问题基本靠猜，签名认证失败时返回的baseString也是没有用的</li>
 <li>授权登陆后获取当前用户的资料，应使用account.verify credentials这个API</li>
@@ -45,8 +45,8 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<ol>
-<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」</li>
-<li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&amp]]>
+<li>第一步获取request_token的时候签名的secret要在consumer_secret后面加「&amp;」.</li>
+<li>第三步『使用授权后的RequestToken获取AccessToken时的签名秘钥必须是”consumer_secret&am]]>
     </summary>
     
       <category term="饭否 API" scheme="http://yoursite.com/tags/%E9%A5%AD%E5%90%A6-API/"/>
